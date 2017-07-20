@@ -9,7 +9,15 @@ import wx
 
 class PanelImagen(wx.Panel):
 
-    def __init__(self, *args, **kw):
+    def __init__(self, parent, id=wx.ID_ANY, pos=wx.DefaultPosition, size=wx.DefaultSize,
+                 style=wx.TAB_TRAVERSAL, name=wx.PanelNameStr):
 
         # Enviamos todos los parametros a la clase padre.
-        super().__init__(*args, **kw)
+        super().__init__(parent, id, pos, size, style, name)
+
+        self.SetBackgroundColour('White')
+
+        sizerLayout = wx.BoxSizer(wx.VERTICAL)
+
+        self.SetSizer(sizerLayout)
+        self.Fit()
