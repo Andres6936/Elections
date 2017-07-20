@@ -9,15 +9,19 @@ import wx
 
 class PanelImagen(wx.Panel):
 
-    def __init__(self, parent, id=wx.ID_ANY, pos=wx.DefaultPosition, size=wx.DefaultSize,
-                 style=wx.TAB_TRAVERSAL, name=wx.PanelNameStr):
+    def __init__(self, *args, **kwargs):
 
         # Enviamos todos los parametros a la clase padre.
-        super().__init__(parent, id, pos, size, style, name)
+        super().__init__(*args, **kwargs)
 
         self.SetBackgroundColour('White')
 
+        rutaImagen = './Data/Encabezado.jpg'
+        bitmap = wx.Bitmap(rutaImagen, wx.BITMAP_TYPE_JPEG)
+        imagen = wx.StaticBitmap(self, -1, bitmap)
+
         sizerLayout = wx.BoxSizer(wx.VERTICAL)
 
+        sizerLayout.Add(imagen, 1, wx.EXPAND)
+
         self.SetSizer(sizerLayout)
-        self.Fit()
