@@ -14,3 +14,24 @@ class PanelUrna(wx.Panel):
 
         # Enviamos todos los parametros a la clase padre.
         super().__init__(parent, id, pos, size, style, name)
+
+        # Etiqueta total votos
+        self.etiquetaTotalVotos = wx.StaticText(self, -1, 'Total Votos')
+        self.etiquetaTotalVotos.SetForegroundColour('Blue')
+
+        # Etiqueta total costo de camapaña
+        self.etiquetaPromedioCostoCampanha = wx.StaticText(self, -1, 'Costo Promedio Campaña: $')
+        self.etiquetaPromedioCostoCampanha.SetForegroundColour('Blue')
+
+        sizerLayout = wx.BoxSizer(wx.VERTICAL)
+
+        sizerLayout.Add(self.etiquetaTotalVotos, 1, wx.CENTER)
+        sizerLayout.Add(self.etiquetaPromedioCostoCampanha, 1, wx.CENTER)
+
+        self.SetSizer(sizerLayout)
+
+    def Actualizar(self, urna):
+        pass
+
+    def FormatearValorReal(self, valor):
+        pass

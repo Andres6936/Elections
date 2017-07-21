@@ -24,12 +24,15 @@ class InterfazElecciones(wx.Frame):
         # Enviamos todos los parametros a la clase padre.
         super().__init__(*args, **kw)
 
+        self.SetBackgroundColour('White')
+
         # Creamos la clase principal.
         self.urna = Urna()
 
         # Construye la forma.
         self.SetTitle('Elecciones Python')
         self.SetSize(wx.Size(800, 600))
+        self.SetMaxSize(wx.Size(800, 600))
         self.SetMinSize(wx.Size(800, 600))
         self.Show(True)
 
@@ -39,9 +42,9 @@ class InterfazElecciones(wx.Frame):
         self.panelImagen = PanelImagen(self, -1)
 
         # Construye los paneles de los tres candidatos
-        self.panelCandidato1 = PanelCandidato(self, -1)
-        self.panelCandidato2 = PanelCandidato(self, -1)
-        self.panelCandidato3 = PanelCandidato(self, -1)
+        self.panelCandidato1 = PanelCandidato(self, -1, nNumeroCandidato=1)
+        self.panelCandidato2 = PanelCandidato(self, -1, nNumeroCandidato=2)
+        self.panelCandidato3 = PanelCandidato(self, -1, nNumeroCandidato=3)
 
         # Panel Urna
         self.panelUrna = PanelUrna(self, -1)
@@ -53,9 +56,9 @@ class InterfazElecciones(wx.Frame):
         sizerLayoutRoot = wx.BoxSizer(wx.VERTICAL)
         sizerLayoutImagen = wx.BoxSizer(wx.VERTICAL)
         sizerLayoutCandidatos = wx.BoxSizer(wx.HORIZONTAL)
-        sizerLayoutCandidato1 = wx.StaticBoxSizer(wx.VERTICAL, self, 'Candidato1')
-        sizerLayoutCandidato2 = wx.StaticBoxSizer(wx.VERTICAL, self, 'Candidato2')
-        sizerLayoutCandidato3 = wx.StaticBoxSizer(wx.VERTICAL, self, 'Candidato3')
+        sizerLayoutCandidato1 = wx.StaticBoxSizer(wx.VERTICAL, self, 'Candidato 1')
+        sizerLayoutCandidato2 = wx.StaticBoxSizer(wx.VERTICAL, self, 'Candidato 2')
+        sizerLayoutCandidato3 = wx.StaticBoxSizer(wx.VERTICAL, self, 'Candidato 3')
         sizerLayoutUrna = wx.StaticBoxSizer(wx.VERTICAL, self, 'Urna')
         sizerLayoutOpciones = wx.StaticBoxSizer(wx.VERTICAL, self, 'Opciones')
 
