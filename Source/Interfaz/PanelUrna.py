@@ -30,8 +30,14 @@ class PanelUrna(wx.Panel):
 
         self.SetSizer(sizerLayout)
 
-    def Actualizar(self, urna):
-        pass
+    def Actualizar(self, urna) -> None:
+        """
+        Actualiza la información.
+        @param urna: Urna de la cual se va a mostrar la información. urna != None.
+        @type urna: Urna
+        """
+        self.etiquetaTotalVotos.SetLabelText('Total Votos: ' + str(urna.CalcularTotalVotos()))
+        self.etiquetaPromedioCostoCampanha.SetLabelText('Costo Promedio Campaña: $ ' + str(urna.CalcularCostoPromedioCampanha()))
 
     def FormatearValorReal(self, valor):
         pass

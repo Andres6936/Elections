@@ -48,6 +48,7 @@ class PanelCandidato(wx.Panel):
 
         # Etiqueta número de votos
         self.etiquetaNumeroVotos = wx.StaticText(self, -1, 'Numero de Votos: ')
+        self.etiquetaNumeroVotos.SetForegroundColour('Red')
 
         # Construye la forma del panel
         sizerLayout = wx.FlexGridSizer(rows=9, cols=1, vgap=1, hgap=1)
@@ -60,14 +61,14 @@ class PanelCandidato(wx.Panel):
 
         sizerLayoutImagen.Add(imagen, 1, wx.EXPAND)
         sizerLayout.Add(sizerLayoutImagen, 1)
-        sizerLayout.Add(self.etiquetaNombreCandidato, 1, wx.EXPAND)
-        sizerLayout.Add(self.etiquetaApellidoCandidato, 1, wx.EXPAND)
-        sizerLayout.Add(self.etiquetaEdadCandidato, 1, wx.EXPAND)
-        sizerLayout.Add(self.etiquetaPartidoPoliticoCandidato, 1, wx.EXPAND)
-        sizerLayout.Add(self.etiquetaCostoCampanhaCandidato, 1, wx.EXPAND)
-        sizerLayout.Add(self.etiquetaNumeroVotos, 1, wx.EXPAND)
-        sizerLayout.Add(self.botonPorcentajeVotos, 0, wx.EXPAND)
-        sizerLayout.Add(self.botonVotar, 0, wx.EXPAND)
+        sizerLayout.Add(self.etiquetaNombreCandidato, 1, wx.ALIGN_LEFT)
+        sizerLayout.Add(self.etiquetaApellidoCandidato, 1, wx.ALIGN_LEFT)
+        sizerLayout.Add(self.etiquetaEdadCandidato, 1, wx.ALIGN_LEFT)
+        sizerLayout.Add(self.etiquetaPartidoPoliticoCandidato, 1, wx.ALIGN_LEFT)
+        sizerLayout.Add(self.etiquetaCostoCampanhaCandidato, 1, wx.ALIGN_LEFT)
+        sizerLayout.Add(self.etiquetaNumeroVotos, 1, wx.ALIGN_CENTER)
+        sizerLayout.Add(self.botonPorcentajeVotos, 0, wx.ALIGN_CENTER)
+        sizerLayout.Add(self.botonVotar, 0, wx.ALIGN_CENTER)
 
         self.SetSizer(sizerLayout)
         self.Fit()

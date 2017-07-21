@@ -120,8 +120,8 @@ class Urna:
     # Punto de Extensión
     # ---------------------------------
 
-    def Metodo1(self):
+    def Metodo1(self) -> str:
         return 'Respuesta 1'
 
-    def Metodo2(self):
+    def Metodo2(self) -> str:
         return 'Respuesta 2'

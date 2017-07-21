@@ -63,9 +63,9 @@ class InterfazElecciones(wx.Frame):
         sizerLayoutOpciones = wx.StaticBoxSizer(wx.VERTICAL, self, 'Opciones')
 
         sizerLayoutImagen.Add(self.panelImagen, 1, wx.EXPAND)
-        sizerLayoutCandidato1.Add(self.panelCandidato1, 1, wx.EXPAND)
-        sizerLayoutCandidato2.Add(self.panelCandidato2, 1, wx.EXPAND)
-        sizerLayoutCandidato3.Add(self.panelCandidato3, 1, wx.EXPAND)
+        sizerLayoutCandidato1.Add(self.panelCandidato1, 1, wx.ALIGN_CENTER)
+        sizerLayoutCandidato2.Add(self.panelCandidato2, 1, wx.ALIGN_CENTER)
+        sizerLayoutCandidato3.Add(self.panelCandidato3, 1, wx.ALIGN_CENTER)
         sizerLayoutCandidatos.Add(sizerLayoutCandidato1, 1, wx.EXPAND)
         sizerLayoutCandidatos.Add(sizerLayoutCandidato2, 1, wx.EXPAND)
         sizerLayoutCandidatos.Add(sizerLayoutCandidato3, 1, wx.EXPAND)
@@ -101,8 +101,13 @@ class InterfazElecciones(wx.Frame):
     def MostrarDialogoPorcentajeVotos(self, numCandidato):
         pass
 
-    def GetTotalVotosUrna(self):
-        pass
+    def GetTotalVotosUrna(self) -> int:
+        """
+        Total de votos de la urna.
+        @return: El total de votos que contiene la urna.
+        @rtype: int
+        """
+        return self.urna.CalcularTotalVotos()
 
     def Actualizar(self) -> None:
         """
@@ -117,8 +122,16 @@ class InterfazElecciones(wx.Frame):
     def FormatearValorReal(self):
         pass
 
-    def reqFuncOpcion1(self):
-        pass
+    def reqFuncOpcion1(self) -> None:
+        """
+        Método para la extensión 1.
+        """
+        resultado = self.urna.Metodo1()
+        wx.MessageBox(resultado, 'Respuesta', wx.OK | wx.ICON_INFORMATION)
 
-    def reqFuncOpcion2(self):
-        pass
+    def reqFuncOpcion2(self) -> None:
+        """
+        Método para la extensión 2.
+        """
+        resultado = self.urna.Metodo2()
+        wx.MessageBox(resultado, 'Respuesta', wx.OK | wx.ICON_INFORMATION)
