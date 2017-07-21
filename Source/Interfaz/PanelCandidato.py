@@ -8,6 +8,9 @@
 import wx
 
 class PanelCandidato(wx.Panel):
+    """
+    Panel que contiene la información de un candidato.
+    """
 
     def __init__(self, parent, id=wx.ID_ANY, pos=wx.DefaultPosition, size=wx.DefaultSize,
                  style=wx.TAB_TRAVERSAL, name=wx.PanelNameStr, nNumeroCandidato=None):
@@ -19,30 +22,32 @@ class PanelCandidato(wx.Panel):
         self.numeroCandidato = nNumeroCandidato
 
         # Botón actualizar datos
-        botonPorcentajeVotos = wx.Button(self, -1, 'Porcentaje Votos')
-        botonPorcentajeVotos.SetSize(wx.Size(160, 20))
+        self.botonPorcentajeVotos = wx.Button(self, -1, 'Porcentaje Votos')
+        self.botonPorcentajeVotos.SetSize(wx.Size(160, 20))
+        self.Bind(wx.EVT_BUTTON, self.OnPorcentajeVotos, self.botonPorcentajeVotos)
 
         # Botón votar
-        botonVotar = wx.Button(self, -1, 'Votar')
-        botonVotar.SetSize(wx.Size(160, 20))
+        self.botonVotar = wx.Button(self, -1, 'Votar')
+        self.botonVotar.SetSize(wx.Size(160, 20))
+        self.Bind(wx.EVT_BUTTON, self.OnVotar, self.botonVotar)
 
         # Etiqueta nombre del candidato
-        etiquetaNombreCandidato = wx.StaticText(self, -1, 'Nombre: ')
+        self.etiquetaNombreCandidato = wx.StaticText(self, -1, 'Nombre: ')
 
         # Etiqueta apellido del candidato
-        etiquetaApellidoCandidato = wx.StaticText(self, -1, 'Apellido: ')
+        self.etiquetaApellidoCandidato = wx.StaticText(self, -1, 'Apellido: ')
 
         # Etiqueta edad del candidato
-        etiquetaEdadCandidato = wx.StaticText(self, -1, 'Edad: ')
+        self.etiquetaEdadCandidato = wx.StaticText(self, -1, 'Edad: ')
 
         # Etiqueta partido político del candidato
-        etiquetaPartidoPoliticoCandidato = wx.StaticText(self, -1, 'Partido Político: ')
+        self.etiquetaPartidoPoliticoCandidato = wx.StaticText(self, -1, 'Partido Político: ')
 
         # Etiqueta costo campaña del candidato
-        etiquetaCostoCampanhaCandidato = wx.StaticText(self, -1, 'Costo Campaña: $ ')
+        self.etiquetaCostoCampanhaCandidato = wx.StaticText(self, -1, 'Costo Campaña: $ ')
 
         # Etiqueta número de votos
-        etiquetaNumeroVotos = wx.StaticText(self, -1, 'Numero de Votos: ')
+        self.etiquetaNumeroVotos = wx.StaticText(self, -1, 'Numero de Votos: ')
 
         # Construye la forma del panel
         sizerLayout = wx.FlexGridSizer(rows=9, cols=1, vgap=1, hgap=1)
@@ -55,14 +60,40 @@ class PanelCandidato(wx.Panel):
 
         sizerLayoutImagen.Add(imagen, 1, wx.EXPAND)
         sizerLayout.Add(sizerLayoutImagen, 1)
-        sizerLayout.Add(etiquetaNombreCandidato, 1, wx.EXPAND)
-        sizerLayout.Add(etiquetaApellidoCandidato, 1, wx.EXPAND)
-        sizerLayout.Add(etiquetaEdadCandidato, 1, wx.EXPAND)
-        sizerLayout.Add(etiquetaPartidoPoliticoCandidato, 1, wx.EXPAND)
-        sizerLayout.Add(etiquetaCostoCampanhaCandidato, 1, wx.EXPAND)
-        sizerLayout.Add(etiquetaNumeroVotos, 1, wx.EXPAND)
-        sizerLayout.Add(botonPorcentajeVotos, 1, wx.EXPAND)
-        sizerLayout.Add(botonVotar, 1, wx.EXPAND)
+        sizerLayout.Add(self.etiquetaNombreCandidato, 1, wx.EXPAND)
+        sizerLayout.Add(self.etiquetaApellidoCandidato, 1, wx.EXPAND)
+        sizerLayout.Add(self.etiquetaEdadCandidato, 1, wx.EXPAND)
+        sizerLayout.Add(self.etiquetaPartidoPoliticoCandidato, 1, wx.EXPAND)
+        sizerLayout.Add(self.etiquetaCostoCampanhaCandidato, 1, wx.EXPAND)
+        sizerLayout.Add(self.etiquetaNumeroVotos, 1, wx.EXPAND)
+        sizerLayout.Add(self.botonPorcentajeVotos, 0, wx.EXPAND)
+        sizerLayout.Add(self.botonVotar, 0, wx.EXPAND)
 
         self.SetSizer(sizerLayout)
         self.Fit()
+
+    def Actualizar(self, candidato):
+        self.etiquetaNombreCandidato.SetLabelText( 'Nombre: ' + candidato.GetNombre() )
+        self.etiquetaApellidoCandidato.SetLabelText( 'Apellido: ' + candidato.GetApellido())
+        self.etiquetaEdadCandidato.SetLabelText( 'Edad: ' + str(candidato.GetEdad()) )
+        self.etiquetaPartidoPoliticoCandidato.SetLabelText( 'Partido Poítico: ' + candidato.GetPartidoPolitico() )
+        self.etiquetaCostoCampanhaCandidato.SetLabelText( 'Costo Campaña: $ ' + str(candidato.GetCostoCampanha()) )
+        self.etiquetaNumeroVotos.SetLabelText( 'Número de Votos: ' + str(candidato.GetVotos()) )
+
+
+    def FormatearValorReal(self):
+        pass
+
+    def OnPorcentajeVotos(self, event) -> None:
+        """
+        Manejo de eventos del usuario
+        @param event: Evento de usuario. event != None
+        """
+        self.principal.MostrarDialogoPorcentajeVotos( self.numeroCandidato )
+
+    def OnVotar(self, event) -> None:
+        """
+        Manejo de eventos del usuario.
+        @param event: Evento de usuario. event != None
+        """
+        self.principal.AdicionarVotoCandidato( self.numeroCandidato )

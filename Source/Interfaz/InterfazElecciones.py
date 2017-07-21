@@ -80,6 +80,7 @@ class InterfazElecciones(wx.Frame):
         self.SetSizer(sizerLayoutRoot)
         self.Layout()
         self.Fit()
+
         self.Actualizar()
 
     # ---------------------------------
@@ -90,8 +91,12 @@ class InterfazElecciones(wx.Frame):
     def AdicionarVotoCandidato(self, numCandidato):
         pass
 
-    def VaciarUrna(self):
-        pass
+    def VaciarUrna(self) -> None:
+        """
+        Restaura la urna.
+        """
+        self.urna.VaciarUrna()
+        self.Actualizar()
 
     def MostrarDialogoPorcentajeVotos(self, numCandidato):
         pass
@@ -99,8 +104,15 @@ class InterfazElecciones(wx.Frame):
     def GetTotalVotosUrna(self):
         pass
 
-    def Actualizar(self):
-        pass
+    def Actualizar(self) -> None:
+        """
+        Actualiza la visualización de la interfaz.
+        @postcondition: Se actualiza la visualización.
+        """
+        self.panelCandidato1.Actualizar( self.urna.GetCandidato1() )
+        self.panelCandidato2.Actualizar( self.urna.GetCandidato2() )
+        self.panelCandidato3.Actualizar( self.urna.GetCandidato3() )
+        self.panelUrna.Actualizar( self.urna )
 
     def FormatearValorReal(self):
         pass
