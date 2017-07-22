@@ -74,12 +74,12 @@ class PanelCandidato(wx.Panel):
         self.Fit()
 
     def Actualizar(self, candidato):
-        self.etiquetaNombreCandidato.SetLabelText( 'Nombre: ' + candidato.GetNombre() )
-        self.etiquetaApellidoCandidato.SetLabelText( 'Apellido: ' + candidato.GetApellido())
-        self.etiquetaEdadCandidato.SetLabelText( 'Edad: ' + str(candidato.GetEdad()) )
-        self.etiquetaPartidoPoliticoCandidato.SetLabelText( 'Partido Poítico: ' + candidato.GetPartidoPolitico() )
-        self.etiquetaCostoCampanhaCandidato.SetLabelText( 'Costo Campaña: $ ' + str(candidato.GetCostoCampanha()) )
-        self.etiquetaNumeroVotos.SetLabelText( 'Número de Votos: ' + str(candidato.GetVotos()) )
+        self.etiquetaNombreCandidato.SetLabel( 'Nombre: ' + candidato.GetNombre() )
+        self.etiquetaApellidoCandidato.SetLabel( 'Apellido: ' + candidato.GetApellido())
+        self.etiquetaEdadCandidato.SetLabel( 'Edad: ' + str(candidato.GetEdad()) )
+        self.etiquetaPartidoPoliticoCandidato.SetLabel( 'Partido Poítico: ' + candidato.GetPartidoPolitico() )
+        self.etiquetaCostoCampanhaCandidato.SetLabel( 'Costo Campaña: $ ' + str(candidato.GetCostoCampanha()) )
+        self.etiquetaNumeroVotos.SetLabel( 'Número de Votos: ' + str(candidato.GetVotos()) )
 
 
     def FormatearValorReal(self):

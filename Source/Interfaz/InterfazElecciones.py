@@ -88,8 +88,52 @@ class InterfazElecciones(wx.Frame):
     # ---------------------------------
 
 
-    def AdicionarVotoCandidato(self, numCandidato):
-        pass
+    def AdicionarVotoCandidato(self, numCandidato) -> None:
+        """
+        Adiciona un voto a un candidato dependiendo del medio que más influenció el voto
+        @param numCandidato: Número del candidato a adicionar el voto.
+        @type numCandidato: int
+        """
+
+        posibilidades = ["Televisión", "Radio", "Internet"]
+        dialogo = wx.SingleChoiceDialog(self, "¿Qué medio influenció?", 'Influencia', posibilidades)
+        dialogo.ShowModal()
+
+        # Obtenemos la respuesta del usuario.
+        respuesta = dialogo.GetStringSelection()
+        # Destruye la ventana.
+        dialogo.Destroy()
+
+        if respuesta is not None:
+            if numCandidato is 1:
+
+                if respuesta == "Televisión":
+                    self.urna.IngresarVotoTelevisionCandidato1()
+                if respuesta == "Radio":
+                    self.urna.IngresarVotoRadioCandidato1()
+                if respuesta == "Internet":
+                    self.urna.IngresarVotoInternetCandidato1()
+
+            if numCandidato is 2:
+
+                if respuesta == "Televisión":
+                    self.urna.IngresarVotoTelevisionCandidato2()
+                if respuesta == "Radio":
+                    self.urna.IngresarVotoRadioCandidato2()
+                if respuesta == "Internet":
+                    self.urna.IngresarVotoInternetCandidato2()
+
+            if numCandidato is 3:
+
+                if respuesta == "Televisión":
+                    self.urna.IngresarVotoTelevisionCandidato3()
+                if respuesta == "Radio":
+                    self.urna.IngresarVotoRadioCandidato3()
+                if respuesta == "Internet":
+                    self.urna.IngresarVotoInternetCandidato3()
+
+        self.Actualizar()
+
 
     def VaciarUrna(self) -> None:
         """

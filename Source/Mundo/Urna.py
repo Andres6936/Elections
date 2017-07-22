@@ -68,14 +68,14 @@ class Urna:
     def CalcularTotalVotos(self):
         return self.candidato1.GetVotos() + self.candidato2.GetVotos() + self.candidato3.GetVotos()
 
-    def CalcularCostoPromedioCampanha(self):
+    def CalcularCostoPromedioCampanha(self) -> float:
 
         total: int = self.candidato1.GetCostoCampanha() + self.candidato2.GetCostoCampanha() + self.candidato3.GetCostoCampanha()
         promedio: float = total / 3
 
         return promedio
 
-    def CalcularPorcentajeVotosCandidato1(self):
+    def CalcularPorcentajeVotosCandidato1(self) -> float:
 
         numVotosCandidato1: int = self.candidato1.GetVotos()
         votosTotales: int = self.CalcularTotalVotos()
@@ -84,7 +84,7 @@ class Urna:
 
         return porcentaje
 
-    def CalcularPorcentajeVotosCandidato2(self):
+    def CalcularPorcentajeVotosCandidato2(self) -> float:
 
         numVotosCandidato2: int = self.candidato2.GetVotos()
         votosTotales: int = self.CalcularTotalVotos()
