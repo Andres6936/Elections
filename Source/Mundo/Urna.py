@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# coding=utf-8
+# -*- coding: utf-8 -*-
 # @Author: Joan Andrés
 # @Date: -*- -*- -*-
 # @Email: andres6936@gmail.com
@@ -25,7 +25,8 @@ class Urna:
     def __init__(self):
         """
         Inicializa los tres candidatos.
-        @postcondition: Se inicializaron los tres candidatos con los valores por parámetro
+
+        :postcondition: Se inicializaron los tres candidatos con los valores por parámetro
         nombre, apellido, partido político y edad.
         """
 
@@ -55,21 +56,24 @@ class Urna:
     def GetCandidato1(self) -> Candidato:
         """
         Devuelve el candidato 1.
-        @return: Candidato 1
+
+        :return: Candidato 1
         """
         return self.candidato1
 
     def GetCandidato2(self) -> Candidato:
         """
         Devuelve el candidato 2.
-        @return: Candidato 2.
+
+        :return: Candidato 2.
         """
         return self.candidato2
 
     def GetCandidato3(self) -> Candidato:
         """
         Devuelve el candidato 3.
-        @return: Candidato 3.
+
+        :return: Candidato 3.
         """
         return self.candidato3
 
@@ -130,17 +134,18 @@ class Urna:
     def CalcularTotalVotos(self) -> int:
         """
         Devuelve el total de votos en la urna.
-        @return: La sumatoria de los votos de los tres candidatos.
-        @rtype: int
+
+        :return: La sumatoria de los votos de los tres candidatos.
+        :rtype: int
         """
         return self.candidato1.GetVotos() + self.candidato2.GetVotos() + self.candidato3.GetVotos()
 
     def CalcularCostoPromedioCampanha(self) -> float:
         """
         Devuelve el costo promedio de camapaña de los candidatos.
-        @return: La razón de la sumatoria de los costos de la campaña de los
-        candidatos y el número total de candidatos.
-        @rtype: float
+
+        :return: La razón de la sumatoria de los costos de la campaña de los candidatos y el número total de candidatos.
+        :rtype: float
         """
 
         total: int = self.candidato1.GetCostoCampanha() + self.candidato2.GetCostoCampanha() + self.candidato3.GetCostoCampanha()
@@ -151,8 +156,9 @@ class Urna:
     def CalcularPorcentajeVotosCandidato1(self) -> float:
         """
         Devuelve el porcentaje de votos obtenidos por el candidato 1.
-        @return: Porcentaje de votos obtenidos por el candidato 1.
-        @rtype: float
+
+        :return: Porcentaje de votos obtenidos por el candidato 1.
+        :rtype: float
         """
 
         numVotosCandidato1: int = self.candidato1.GetVotos()
@@ -165,8 +171,9 @@ class Urna:
     def CalcularPorcentajeVotosCandidato2(self) -> float:
         """
         Devuelve el porcentaje de votos obtenidos por el candidato 2.
-        @return: Porcentaje de votos obtenidos por el candidato 2.
-        @rtype: float
+
+        :return: Porcentaje de votos obtenidos por el candidato 2.
+        :rtype: float
         """
 
         numVotosCandidato2: int = self.candidato2.GetVotos()
@@ -179,8 +186,9 @@ class Urna:
     def CalcularPorcentajeVotosCandidato3(self) -> float:
         """
         Devuelve el porcentaje de votos obtenidos por el candidato 3.
-        @return: Porcentaje de votos obtenidos por el candidato 3.
-        @rtype: float
+
+        :return: Porcentaje de votos obtenidos por el candidato 3.
+        :rtype: float
         """
 
         numVotosCandidato3: int = self.candidato3.GetVotos()
@@ -215,13 +223,15 @@ class Urna:
     def Metodo1(self) -> str:
         """
         Método para la extensión 1.
-        @return: Respuesta 1.
+
+        :return: Respuesta 1.
         """
         return 'Respuesta 1'
 
     def Metodo2(self) -> str:
         """
         Método para la extensión 2.
-        @return: Respuesta 2.
+
+        :return: Respuesta 2.
         """
         return 'Respuesta 2'

@@ -1,0 +1,22 @@
+site_name: N1-Elecciones-Python
+site_description: "Documentación de N1-Elecciones-Python"
+site_author: 'Joan Andrés'
+
+repo_name: 'GitHub'
+repo_url: https://github.com/Andres6936/N1-Elecciones-Python
+
+pages:
+  - Principal: index.md
+  - Descripción: descripcion.md
+  - Requerimientos Funcionales: requerimientos.md
+  - API Referencia:
+    - Candidato: Modulos/Mundo/Candidato.md
+    - Urna: Modulos/Mundo/Urna.md
+    - InterfazElecciones: Modulos/Interfaz/InterfazElecciones.md
+    - PanelCandidato: Modulos/Interfaz/PanelCandidato.md
+    - PanelExtension: Modulos/Interfaz/PanelExtension.md
+    - PanelImagen: Modulos/Interfaz/PanelImagen.md
+    - PanelUrna: Modulos/Interfaz/PanelUrna.md
+
+
+theme: readthedocs

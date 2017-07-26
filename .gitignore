@@ -137,3 +137,9 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# Ignora la carpeta generada por PyCharm
+.idea/
+
+# Ignora la carpeta generada por la documentación de Mkdocs
+site/
