@@ -26,8 +26,9 @@ class Urna:
         """
         Inicializa los tres candidatos.
 
-        :postcondition: Se inicializaron los tres candidatos con los valores por parámetro
-        nombre, apellido, partido político y edad.
+        Poscondicion:
+            Se inicializaron los tres candidatos con los valores por parámetro
+            nombre, apellido, partido político y edad.
         """
 
         # Inicializa el candidato 1.
@@ -57,7 +58,8 @@ class Urna:
         """
         Devuelve el candidato 1.
 
-        :return: Candidato 1
+        Returns:
+            Candidato: Candidato 1
         """
         return self.candidato1
 
@@ -65,7 +67,8 @@ class Urna:
         """
         Devuelve el candidato 2.
 
-        :return: Candidato 2.
+        Returns:
+            Candidato: Candidato 2.
         """
         return self.candidato2
 
@@ -73,7 +76,8 @@ class Urna:
         """
         Devuelve el candidato 3.
 
-        :return: Candidato 3.
+        Returns:
+            Candidato: Candidato 3.
         """
         return self.candidato3
 
@@ -135,8 +139,8 @@ class Urna:
         """
         Devuelve el total de votos en la urna.
 
-        :return: La sumatoria de los votos de los tres candidatos.
-        :rtype: int
+        Returns:
+            int: La sumatoria de los votos de los tres candidatos.
         """
         return self.candidato1.GetVotos() + self.candidato2.GetVotos() + self.candidato3.GetVotos()
 
@@ -144,8 +148,9 @@ class Urna:
         """
         Devuelve el costo promedio de camapaña de los candidatos.
 
-        :return: La razón de la sumatoria de los costos de la campaña de los candidatos y el número total de candidatos.
-        :rtype: float
+        Returns:
+            float: La razón de la sumatoria de los costos de la campaña de
+            los candidatos y el número total de candidatos.
         """
 
         total: int = self.candidato1.GetCostoCampanha() + self.candidato2.GetCostoCampanha() + self.candidato3.GetCostoCampanha()
@@ -157,8 +162,8 @@ class Urna:
         """
         Devuelve el porcentaje de votos obtenidos por el candidato 1.
 
-        :return: Porcentaje de votos obtenidos por el candidato 1.
-        :rtype: float
+        Returns:
+            float: Porcentaje de votos obtenidos por el candidato 1.
         """
 
         numVotosCandidato1: int = self.candidato1.GetVotos()
@@ -172,8 +177,8 @@ class Urna:
         """
         Devuelve el porcentaje de votos obtenidos por el candidato 2.
 
-        :return: Porcentaje de votos obtenidos por el candidato 2.
-        :rtype: float
+        Returns:
+            float: Porcentaje de votos obtenidos por el candidato 2.
         """
 
         numVotosCandidato2: int = self.candidato2.GetVotos()
@@ -187,8 +192,8 @@ class Urna:
         """
         Devuelve el porcentaje de votos obtenidos por el candidato 3.
 
-        :return: Porcentaje de votos obtenidos por el candidato 3.
-        :rtype: float
+        Returns:
+            float: Porcentaje de votos obtenidos por el candidato 3.
         """
 
         numVotosCandidato3: int = self.candidato3.GetVotos()
@@ -224,7 +229,8 @@ class Urna:
         """
         Método para la extensión 1.
 
-        :return: Respuesta 1.
+        Returns:
+            str: Respuesta 1.
         """
         return 'Respuesta 1'
 
@@ -232,6 +238,7 @@ class Urna:
         """
         Método para la extensión 2.
 
-        :return: Respuesta 2.
+        Returns:
+            str: Respuesta 2.
         """
         return 'Respuesta 2'

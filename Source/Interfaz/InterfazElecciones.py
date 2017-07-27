@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# coding=utf-8
+# -*- coding: utf-8 -*-
 # @Author: Joan Andrés
 # @Date: -*- -*- -*-
 # @Email: andres6936@gmail.com
@@ -14,12 +14,18 @@ from Source.Interfaz.PanelCandidato import PanelCandidato
 from Source.Interfaz.PanelExtension import PanelExtension
 
 class InterfazElecciones(wx.Frame):
+    """
+    Esta es la ventana principal de la aplicación.
+    """
 
     # ---------------------------------
     # Constructor
     # ---------------------------------
 
     def __init__(self, *args, **kw):
+        """
+        Constructor donde se arma la interfaz.
+        """
 
         # Enviamos todos los parametros a la clase padre.
         super().__init__(*args, **kw)
@@ -90,9 +96,10 @@ class InterfazElecciones(wx.Frame):
 
     def AdicionarVotoCandidato(self, numCandidato) -> None:
         """
-        Adiciona un voto a un candidato dependiendo del medio que más influenció el voto
-        @param numCandidato: Número del candidato a adicionar el voto.
-        @type numCandidato: int
+        Adiciona un voto a un candidato dependiendo del medio que más influenció el voto.
+
+        Args:
+            numCandidato (int): Número del candidato a adicionar el voto.
         """
 
         posibilidades = ["Televisión", "Radio", "Internet"]
@@ -148,15 +155,18 @@ class InterfazElecciones(wx.Frame):
     def GetTotalVotosUrna(self) -> int:
         """
         Total de votos de la urna.
-        @return: El total de votos que contiene la urna.
-        @rtype: int
+
+        Returns:
+            int: El total de votos que contiene la urna.
         """
         return self.urna.CalcularTotalVotos()
 
     def Actualizar(self) -> None:
         """
         Actualiza la visualización de la interfaz.
-        @postcondition: Se actualiza la visualización.
+
+        Poscondicion:
+            Se actualiza la visualización.
         """
         self.panelCandidato1.Actualizar( self.urna.GetCandidato1() )
         self.panelCandidato2.Actualizar( self.urna.GetCandidato2() )
@@ -165,6 +175,10 @@ class InterfazElecciones(wx.Frame):
 
     def FormatearValorReal(self):
         pass
+
+    # ---------------------------------
+    # Puntos de Extensión.
+    # ---------------------------------
 
     def reqFuncOpcion1(self) -> None:
         """

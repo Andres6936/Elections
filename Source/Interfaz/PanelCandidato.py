@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# coding=utf-8
+# -*- coding: utf-8 -*-
 # @Author: Joan Andrés
 # @Date: -*- -*- -*-
 # @Email: andres6936@gmail.com
@@ -12,8 +12,19 @@ class PanelCandidato(wx.Panel):
     Panel que contiene la información de un candidato.
     """
 
+    # ---------------------------------
+    # Constructor.
+    # ---------------------------------
+
     def __init__(self, parent, id=wx.ID_ANY, pos=wx.DefaultPosition, size=wx.DefaultSize,
                  style=wx.TAB_TRAVERSAL, name=wx.PanelNameStr, nNumeroCandidato=None):
+        """
+        Constructor del panel.
+
+        Args:
+            parent (InterfazElecciones): Ventana principal. parent != None.
+            nNumeroCandidato (int): Número del candidato.
+        """
 
         # Enviamos todos los parametros a la clase padre.
         super().__init__(parent, id, pos, size, style, name)
@@ -73,7 +84,17 @@ class PanelCandidato(wx.Panel):
         self.SetSizer(sizerLayout)
         self.Fit()
 
-    def Actualizar(self, candidato):
+    # ---------------------------------
+    # Métodos.
+    # ---------------------------------
+
+    def Actualizar(self, candidato) -> None:
+        """
+        Actualiza la visualización de la información.
+
+        Args:
+            candidato (Candidato): Candidato de donde se saca la información. candidato != None.
+        """
         self.etiquetaNombreCandidato.SetLabel( 'Nombre: ' + candidato.GetNombre() )
         self.etiquetaApellidoCandidato.SetLabel( 'Apellido: ' + candidato.GetApellido())
         self.etiquetaEdadCandidato.SetLabel( 'Edad: ' + str(candidato.GetEdad()) )
@@ -87,14 +108,18 @@ class PanelCandidato(wx.Panel):
 
     def OnPorcentajeVotos(self, event) -> None:
         """
-        Manejo de eventos del usuario
-        @param event: Evento de usuario. event != None
+        Manejo de eventos del usuario.
+
+        Args:
+            event: Evento de usuario. event != None
         """
         self.principal.MostrarDialogoPorcentajeVotos( self.numeroCandidato )
 
     def OnVotar(self, event) -> None:
         """
         Manejo de eventos del usuario.
-        @param event: Evento de usuario. event != None
+
+        Args:
+            event: Evento de usuario. event != None
         """
         self.principal.AdicionarVotoCandidato( self.numeroCandidato )

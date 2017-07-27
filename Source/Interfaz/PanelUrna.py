@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# coding=utf-8
+# -*- coding: utf-8 -*-
 # @Author: Joan Andrés
 # @Date: -*- -*- -*-
 # @Email: andres6936@gmail.com
@@ -8,6 +8,13 @@
 import wx
 
 class PanelUrna(wx.Panel):
+    """
+    Panel que contiene la información de la urna de votos en la elecciones Cupi2.
+    """
+
+    # ---------------------------------
+    # Constructor.
+    # ---------------------------------
 
     def __init__(self, parent, id=wx.ID_ANY, pos=wx.DefaultPosition, size=wx.DefaultSize,
                  style=wx.TAB_TRAVERSAL, name=wx.PanelNameStr):
@@ -30,11 +37,16 @@ class PanelUrna(wx.Panel):
 
         self.SetSizer(sizerLayout)
 
+    # ---------------------------------
+    # Métodos.
+    # ---------------------------------
+
     def Actualizar(self, urna) -> None:
         """
         Actualiza la información.
-        @param urna: Urna de la cual se va a mostrar la información. urna != None.
-        @type urna: Urna
+
+        Args:
+            urna (Urna): Urna de la cual se va a mostrar la información. urna != None.
         """
         self.etiquetaTotalVotos.SetLabelText('Total Votos: ' + str(urna.CalcularTotalVotos()))
         self.etiquetaPromedioCostoCampanha.SetLabelText('Costo Promedio Campaña: $ ' + str(urna.CalcularCostoPromedioCampanha()))

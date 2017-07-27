@@ -24,15 +24,14 @@ class Candidato:
         """
         Inicializa los datos del candidato con los valores que vienen por parámetro.
 
-        :postcondition: El costo de campaña se inicializó en cero.
-        :param nNombre: Nombre del candidato.
-        :type nNombre: str
-        :param nApellido: Apellido del candidato.
-        :type nApellido: str
-        :param nPartidoPolitico: Partido político del candidato.
-        :type nPartidoPolitico: str
-        :param nEdad: Edad del candidato.
-        :type nEdad: int
+        Args:
+            nNombre (str): Nombre del candidato.
+            nApellido (str): Apellido del candidato.
+            nPartidoPolitico (str): Partido político del candidato.
+            nEdad (int): Edad del candidato.
+
+        Poscondicion:
+            El costo de campaña se inicializó en cero.
         """
 
         self.nombre: str = nNombre
@@ -50,8 +49,8 @@ class Candidato:
         """
         Devuelve el nombre del candidato.
 
-        :return: Nombre del candidato.
-        :rtype: str
+        Returns:
+            str: Nombre del candidato.
         """
         return self.nombre
 
@@ -59,8 +58,8 @@ class Candidato:
         """
         Devuelve el apellido del candidato.
 
-        :return: Apellido del candidato.
-        :rtype: str
+        Returns:
+            str: Apellido del candidato.
         """
         return self.apellido
 
@@ -68,8 +67,8 @@ class Candidato:
         """
         Devuelve el partido político del candidato.
 
-        :return: Partido político del candidato.
-        :rtype: str
+        Returns:
+            str: Partido político del candidato.
         """
         return self.partidoPolitico
 
@@ -77,8 +76,8 @@ class Candidato:
         """
         Devuelve la edad del candidato.
 
-        :return: Edad del candidato.
-        :rtype: int
+        Returns:
+            int: Edad del candidato.
         """
         return self.edad
 
@@ -86,8 +85,8 @@ class Candidato:
         """
         Devuelve el costo de campaña del candidato.
 
-        :return: Costo de campaña del candidato.
-        :rtype: float
+        Returns:
+            float: Costo de campaña del candidato.
         """
         return self.costoCampanha
 
@@ -95,8 +94,8 @@ class Candidato:
         """
         Devuelve el número de votos del candidato.
 
-        :return: Número de votos obtenidos.
-        :rtype: int
+        Returns:
+            int: Número de votos obtenidos.
         """
         return self.votos
 
@@ -104,7 +103,8 @@ class Candidato:
         """
         Ingresa un voto al candidato.
 
-        :postcondition: Se modificó el número de votos aumentándose el existente en 1.
+        Poscondicion:
+            Se modificó el número de votos aumentándose el existente en 1.
         """
         self.votos += 1
 
@@ -112,8 +112,9 @@ class Candidato:
         """
         Adiciona un voto influenciado por la televisión.
 
-        :postcondition: Se adiciona al costo de la camapaña
-        la suma de $1000 y se incrementa el número de votos en 1.
+        Poscondicion:
+            Se adiciona al costo de la camapaña
+            la suma de $1000 y se incrementa el número de votos en 1.
         """
         self.costoCampanha += 1000
         self.IngresarUnVoto()
@@ -122,8 +123,9 @@ class Candidato:
         """
         Adiciona un voto influenciado por la radio.
 
-        :postcondition: Se adiciona al costo de la campaña la suma de $500 y se
-        incrementa el número de votos en 1.
+        Poscondicion:
+            Se adiciona al costo de la campaña la suma de $500 y se
+            incrementa el número de votos en 1.
         """
         self.costoCampanha += 500
         self.IngresarUnVoto()
@@ -132,8 +134,9 @@ class Candidato:
         """
         Adiciona un voto influenciado por internet.
 
-        :postcondition: Se adiciona al costo de la camapaña la suma de $100
-        y se incrementa el número de votos en 1.
+        Poscondicion:
+            Se adiciona al costo de la camapaña la suma de $100
+            y se incrementa el número de votos en 1.
         """
         self.costoCampanha += 100
         self.IngresarUnVoto()
@@ -142,14 +145,16 @@ class Candidato:
         """
         Se reinicia el conteo de votos.
 
-        :postcondition: self.votos = 0
+        Poscondicion:
+            self.votos = 0
         """
         self.votos = 0
 
-    def ReiniciarCostoCampanha(self):
+    def ReiniciarCostoCampanha(self) -> None:
         """
         Se reinicia el costo de camapaña.
 
-        :postcondition: self.costoCampanha = 0
+        Poscondicion:
+            self.costoCampanha = 0
         """
         self.costoCampanha = 0
