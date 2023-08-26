@@ -5,6 +5,9 @@ name = "pypi"
 
 [packages]
 wxpython = "*"
+fastapi = "*"
+uvicorn = { extras = ["standard"], version = "*" }
+peewee = "*"
 
 [dev-packages]
 

@@ -9,6 +9,7 @@ import wx
 
 from Source.Interfaz.InterfazElecciones import InterfazElecciones
 
+
 class AplicationManager(wx.App):
 
     def __init__(self, redirect=True, filename=None, useBestVisual=False, clearSigInt=True):
