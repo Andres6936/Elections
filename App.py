@@ -44,9 +44,27 @@ def InsertPersonal(personal: PersonalBody):
     return {'Body': 'Success'}
 
 
-@app.put("/personal/find/update")
+@app.put("/personal/update")
 def UpdatePersonal(personal: PersonalBody):
-    pass
+    try:
+        item = Personal.get(Personal.Serial == personal.Serial)
+        item.TypeDocument = personal.TypeDocument
+        item.NumberDocument = personal.NumberDocument
+        item.Names = personal.Names
+        item.BornPlace = personal.BornPlace
+        item.Country = personal.Country
+        item.Profession = personal.Profession
+        item.Experience = personal.Experience
+        item.Role = personal.Role
+        item.Dependency = personal.Dependency
+        item.Email = personal.Email
+        item.Phone = personal.Phone
+        item.Salary = personal.Salary
+
+        item.save()
+        return {'Item': item.__data__}
+    except DoesNotExist:
+        return {'Body': 'Not Found'}
 
 
 @app.delete("/personal/delete")

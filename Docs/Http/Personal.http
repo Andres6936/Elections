@@ -35,3 +35,23 @@ Content-Type: application/json
   "Phone": 8892028,
   "Salary": "ENTRE 3-4 SMLV"
 }
+
+###
+PUT http://127.0.0.1:8000/personal/update
+Content-Type: application/json
+
+{
+  "Serial": "b48e4b75-42db-4ff1-94aa-bdcc9e81e588",
+  "TypeDocument": "CC",
+  "NumberDocument": 1007206764,
+  "Names": "Joan Andrés Buriticá",
+  "BornPlace": "CALI (VALLE DEL CAUCA)",
+  "Country": "COLOMBIA",
+  "Profession": "PROFESIONAL",
+  "Experience": "01/06/2016 12:00:00 AM",
+  "Role": "INGENIERO",
+  "Dependency": "ADMINISTRATIVO",
+  "Email": "ecaaas@gmail.com",
+  "Phone": 8892028,
+  "Salary": "ENTRE 4-5 SMLV"
+}
