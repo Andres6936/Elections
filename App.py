@@ -69,7 +69,12 @@ def UpdatePersonal(personal: PersonalBody):
 
 @app.delete("/personal/delete")
 def RemovePersonal(query: QueryBySerial):
-    pass
+    try:
+        personal = Personal.get(Personal.Serial == query.Serial)
+        personal.delete_instance()
+        return {'Body': 'Success'}
+    except DoesNotExist:
+        return {'Body': 'Not Found'}
 
 
 @app.get("/personal/covi/count")

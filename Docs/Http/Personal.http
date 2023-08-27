@@ -55,3 +55,11 @@ Content-Type: application/json
   "Phone": 8892028,
   "Salary": "ENTRE 4-5 SMLV"
 }
+
+###
+DELETE http://127.0.0.1:8000/personal/delete
+Content-Type: application/json
+
+{
+  "Serial": "b48e4b75-42db-4ff1-94aa-bdcc9e81e588"
+}
