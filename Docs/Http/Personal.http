@@ -16,3 +16,22 @@ Content-Type: application/json
 {
   "Serial": "e8bf2e41-7a5e-423e-9a3a-2ff50922dbe6"
 }
+
+###
+POST http://127.0.0.1:8000/personal/insert
+Content-Type: application/json
+
+{
+  "TypeDocument": "CC",
+  "NumberDocument": 1007206764,
+  "Names": "Joan Andrés Buriticá",
+  "BornPlace": "CALI (VALLE DEL CAUCA)",
+  "Country": "COLOMBIA",
+  "Profession": "PROFESIONAL",
+  "Experience": "01/06/2016 12:00:00 AM",
+  "Role": "INGENIERO",
+  "Dependency": "ADMINISTRATIVO",
+  "Email": "ecaaas@gmail.com",
+  "Phone": 8892028,
+  "Salary": "ENTRE 3-4 SMLV"
+}

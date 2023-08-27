@@ -39,7 +39,9 @@ def FindOnePersonal(query: QueryBySerial):
 
 @app.post("/personal/insert")
 def InsertPersonal(personal: PersonalBody):
-    pass
+    personal = Personal.From(personal)
+    personal.save()
+    return {'Body': 'Success'}
 
 
 @app.put("/personal/find/update")
