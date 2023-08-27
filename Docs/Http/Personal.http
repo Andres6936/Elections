@@ -1,2 +1,18 @@
 GET http://127.0.0.1:8000/personal/covi/count
 
+###
+POST http://127.0.0.1:8000/personal/find/all
+Content-Type: application/json
+
+{
+  "Page": 1,
+  "PageSize": 10
+}
+
+###
+POST http://127.0.0.1:8000/personal/find/one
+Content-Type: application/json
+
+{
+  "Serial": "e8bf2e41-7a5e-423e-9a3a-2ff50922dbe6"
+}

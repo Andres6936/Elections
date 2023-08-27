@@ -21,16 +21,16 @@ class PersonalCOVI(PersonalBase):
 
 
 class PersonalCOVIBody(BaseModel):
-    Serial = str
-    Nit = float
-    Business = str
-    TypeBusiness = int
-    NumberDocument = str
-    Names = str
-    Profession = str
-    TypeVehicle = str
-    NumberVehicle = str
-    Phone = str
-    Address = str
-    Age = str
-    Eps = str
+    Serial: str | None = None
+    Nit: float
+    Business: str
+    TypeBusiness: int
+    NumberDocument: str
+    Names: str
+    Profession: str
+    TypeVehicle: str
+    NumberVehicle: str
+    Phone: str
+    Address: str
+    Age: str
+    Eps: str

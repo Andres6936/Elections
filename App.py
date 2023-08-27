@@ -1,7 +1,10 @@
 from fastapi import FastAPI
+from peewee import DoesNotExist
 
-from Services.Models.Personal.Personal import Personal
+from Services.Models.General.Pagination import Pagination
+from Services.Models.Personal.Personal import Personal, PersonalBody
 from Services.Models.Personal.PersonalCOVI import PersonalCOVI
+from Services.Models.Personal.QueryBySerial import QueryBySerial
 
 app = FastAPI()
 
@@ -18,27 +21,34 @@ def CountPersonal():
 
 
 @app.post("/personal/find/all")
-def FindAllPersonal():
-    pass
+def FindAllPersonal(pagination: Pagination):
+    if pagination.Page < 1:
+        return {'Body': 'The pagination is 1-index based'}
+    query = Personal.select().paginate(pagination.Page, pagination.PageSize)
+    return {'Items': [item.__data__ for item in query]}
 
 
 @app.post("/personal/find/one")
-def FindOnePersonal():
-    pass
+def FindOnePersonal(query: QueryBySerial):
+    try:
+        personal = Personal.get(Personal.Serial == query.Serial)
+        return {'Item': personal.__data__}
+    except DoesNotExist:
+        return {'Body': 'Not Found'}
 
 
 @app.post("/personal/insert")
-def InsertPersonal():
+def InsertPersonal(personal: PersonalBody):
     pass
 
 
 @app.put("/personal/find/update")
-def UpdatePersonal():
+def UpdatePersonal(personal: PersonalBody):
     pass
 
 
 @app.delete("/personal/delete")
-def RemovePersonal():
+def RemovePersonal(query: QueryBySerial):
     pass
 
 

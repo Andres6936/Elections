@@ -21,16 +21,16 @@ class Personal(PersonalBase):
 
 
 class PersonalBody(BaseModel):
-    Serial = str
-    TypeDocument = str
-    NumberDocument = int
-    Names = str
-    BornPlace = str
-    Country = str
-    Profession = str
-    Experience = str
-    Role = str
-    Dependency = str
-    Email = str
-    Phone = int
-    Salary = str
+    Serial: str | None = None
+    TypeDocument: str
+    NumberDocument: int
+    Names: str
+    BornPlace: str
+    Country: str
+    Profession: str
+    Experience: str
+    Role: str
+    Dependency: str
+    Email: str
+    Phone: int
+    Salary: str
