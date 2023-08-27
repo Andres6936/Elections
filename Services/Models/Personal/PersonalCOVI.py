@@ -5,11 +5,11 @@ from Services.Models.Personal.PersonalBase import PersonalBase
 
 
 class PersonalCOVI(PersonalBase):
-    Serial = TextField()
+    Serial = TextField(primary_key=True)
     Nit = DoubleField()
     Business = TextField()
     TypeBusiness = IntegerField()
-    NumberDocument = TextField(primary_key=True)
+    NumberDocument = TextField()
     Names = TextField()
     Profession = TextField()
     TypeVehicle = TextField()

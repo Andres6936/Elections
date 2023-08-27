@@ -5,9 +5,9 @@ from Services.Models.Personal.PersonalBase import PersonalBase
 
 
 class Personal(PersonalBase):
-    Serial = TextField()
+    Serial = TextField(primary_key=True)
     TypeDocument = TextField()
-    NumberDocument = IntegerField(primary_key=True)
+    NumberDocument = IntegerField()
     Names = TextField()
     BornPlace = TextField()
     Country = TextField()
