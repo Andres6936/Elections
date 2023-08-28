@@ -143,3 +143,6 @@ $RECYCLE.BIN/
 
 # Ignora la carpeta generada por la documentación de Mkdocs
 site/
+
+# Database DUMP
+*.sqlite
