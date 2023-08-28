@@ -8,6 +8,7 @@ wxpython = "*"
 fastapi = "*"
 uvicorn = { extras = ["standard"], version = "*" }
 peewee = "*"
+shortuuid = "*"
 
 [dev-packages]
 
