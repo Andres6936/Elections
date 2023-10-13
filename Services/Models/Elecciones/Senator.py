@@ -4,7 +4,7 @@ from Services.Models.Elecciones.EleccionesBase import EleccionesBase
 
 
 class Senator(EleccionesBase):
-    Serial = TextField()
+    Serial = TextField(primary_key=True)
     Name = TextField()
-    Identification = TextField(primary_key=True)
+    Identification = TextField()
     TypeIdentification = TextField()
