@@ -1,5 +1,6 @@
-from Services.Migrations.AddUUID import AddUUID, AddUUIDCandidates
+from Services.Migrations.AddUUID import ADDUUIDSenator
 
 if __name__ == '__main__':
-    AddUUID()
-    AddUUIDCandidates()
+    # AddUUID()
+    # AddUUIDCandidates()
+    ADDUUIDSenator()
