@@ -4,6 +4,7 @@ import shortuuid
 
 from Services.Models.Elecciones.Candidates import Candidates
 from Services.Models.Elecciones.Senator import Senator
+from Services.Models.Elecciones.SenatorExpense import SenatorExpense
 from Services.Models.Personal.Personal import Personal
 from Services.Models.Personal.PersonalCOVI import PersonalCOVI
 
@@ -28,3 +29,9 @@ def ADDUUIDSenator():
     for senator in Senator.select():
         senator.Serial = shortuuid.ShortUUID().random(length=6)
         senator.save()
+
+
+def AddUUIDSenatorExpense():
+    for expense in SenatorExpense.select():
+        expense.UUID = shortuuid.ShortUUID().random(length=6)
+        expense.save()
