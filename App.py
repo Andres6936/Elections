@@ -2,7 +2,7 @@ import uvicorn
 from fastapi import FastAPI
 from peewee import DoesNotExist
 
-from Services.Models.Elecciones.Candidates import Candidates, CandidateBody
+from Services.Models.Elecciones.Candidate import Candidate, CandidateBody
 from Services.Models.General.Pagination import Pagination
 from Services.Models.General.QueryBySerial import QueryBySerial
 
@@ -16,7 +16,7 @@ def GetRoot():
 
 @app.get("/candidates/count")
 def CountPersonal():
-    count = Candidates.select('*').count()
+    count = Candidate.select('*').count()
     return {'Count': count}
 
 
@@ -24,14 +24,14 @@ def CountPersonal():
 def FindAllPersonal(pagination: Pagination):
     if pagination.Page < 1:
         return {'Body': 'The pagination is 1-index based'}
-    query = Candidates.select().paginate(pagination.Page, pagination.PageSize)
+    query = Candidate.select().paginate(pagination.Page, pagination.PageSize)
     return {'Items': [item.__data__ for item in query]}
 
 
 @app.post("/candidates/find/one")
 def FindOnePersonal(query: QueryBySerial):
     try:
-        personal = Candidates.get(Candidates.Serial == query.Serial)
+        personal = Candidate.get(Candidate.Serial == query.Serial)
         return {'Item': personal.__data__}
     except DoesNotExist:
         return {'Body': 'Not Found'}
@@ -39,7 +39,7 @@ def FindOnePersonal(query: QueryBySerial):
 
 @app.post("/candidates/insert")
 def InsertPersonal(personal: CandidateBody):
-    personal = Candidates.From(personal)
+    personal = Candidate.From(personal)
     personal.save()
     return {'Body': 'Success'}
 
@@ -47,7 +47,7 @@ def InsertPersonal(personal: CandidateBody):
 @app.put("/candidates/update")
 def UpdatePersonal(personal: CandidateBody):
     try:
-        item = Candidates.get(Candidates.Serial == personal.Serial)
+        item = Candidate.get(Candidate.Serial == personal.Serial)
         item.Candidate = personal.Candidate
         item.PoliticalParty = personal.PoliticalParty
 
@@ -60,7 +60,7 @@ def UpdatePersonal(personal: CandidateBody):
 @app.delete("/candidates/delete")
 def RemovePersonal(query: QueryBySerial):
     try:
-        personal = Candidates.get(Candidates.Serial == query.Serial)
+        personal = Candidate.get(Candidate.Serial == query.Serial)
         personal.delete_instance()
         return {'Body': 'Success'}
     except DoesNotExist:

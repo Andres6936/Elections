@@ -10,14 +10,14 @@ class CandidateBody(BaseModel):
     PoliticalParty: str
 
 
-class Candidates(EleccionesBase):
+class Candidate(EleccionesBase):
     Serial = TextField(primary_key=True)
     Candidate = TextField()
     PoliticalParty = TextField()
 
     @staticmethod
     def From(body: CandidateBody):
-        return Candidates.create(
+        return Candidate.create(
             Serial=shortuuid.ShortUUID().random(length=6),
             Candidate=body.Candidate,
             PoliticalParty=body.PoliticalParty,
