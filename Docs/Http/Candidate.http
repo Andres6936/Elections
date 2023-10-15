@@ -1,7 +1,7 @@
-GET http://127.0.0.1:8000/personal/covi/count
+GET http://127.0.0.1:8000/candidate/count
 
 ###
-POST http://127.0.0.1:8000/personal/find/all
+POST http://127.0.0.1:8000/candidate/find/all
 Content-Type: application/json
 
 {
@@ -10,7 +10,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://127.0.0.1:8000/personal/find/one
+POST http://127.0.0.1:8000/candidate/find/one
 Content-Type: application/json
 
 {
@@ -18,7 +18,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://127.0.0.1:8000/personal/insert
+POST http://127.0.0.1:8000/candidate/insert
 Content-Type: application/json
 
 {
@@ -37,7 +37,7 @@ Content-Type: application/json
 }
 
 ###
-PUT http://127.0.0.1:8000/personal/update
+PUT http://127.0.0.1:8000/candidate/update
 Content-Type: application/json
 
 {
@@ -57,7 +57,7 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://127.0.0.1:8000/personal/delete
+DELETE http://127.0.0.1:8000/candidate/delete
 Content-Type: application/json
 
 {

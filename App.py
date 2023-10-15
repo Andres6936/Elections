@@ -14,13 +14,13 @@ def GetRoot():
     return {"Hello": "World"}
 
 
-@app.get("/candidates/count")
+@app.get("/candidate/count")
 def CountPersonal():
     count = Candidate.select('*').count()
     return {'Count': count}
 
 
-@app.post("/candidates/find/all")
+@app.post("/candidate/find/all")
 def FindAllPersonal(pagination: Pagination):
     if pagination.Page < 1:
         return {'Body': 'The pagination is 1-index based'}
@@ -28,7 +28,7 @@ def FindAllPersonal(pagination: Pagination):
     return {'Items': [item.__data__ for item in query]}
 
 
-@app.post("/candidates/find/one")
+@app.post("/candidate/find/one")
 def FindOnePersonal(query: QueryBySerial):
     try:
         personal = Candidate.get(Candidate.Serial == query.Serial)
@@ -37,14 +37,14 @@ def FindOnePersonal(query: QueryBySerial):
         return {'Body': 'Not Found'}
 
 
-@app.post("/candidates/insert")
+@app.post("/candidate/insert")
 def InsertPersonal(personal: CandidateBody):
     personal = Candidate.From(personal)
     personal.save()
     return {'Body': 'Success'}
 
 
-@app.put("/candidates/update")
+@app.put("/candidate/update")
 def UpdatePersonal(personal: CandidateBody):
     try:
         item = Candidate.get(Candidate.Serial == personal.Serial)
@@ -57,7 +57,7 @@ def UpdatePersonal(personal: CandidateBody):
         return {'Body': 'Not Found'}
 
 
-@app.delete("/candidates/delete")
+@app.delete("/candidate/delete")
 def RemovePersonal(query: QueryBySerial):
     try:
         personal = Candidate.get(Candidate.Serial == query.Serial)
@@ -68,4 +68,4 @@ def RemovePersonal(query: QueryBySerial):
 
 
 if __name__ == '__main__':
-    uvicorn.run("main:app", port=5000, log_level="info")
+    uvicorn.run("App:app", port=8000, log_level="info")
