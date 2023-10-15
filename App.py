@@ -1,10 +1,10 @@
+import uvicorn
 from fastapi import FastAPI
 from peewee import DoesNotExist
 
+from Services.Models.Elecciones.Candidates import Candidates, CandidateBody
 from Services.Models.General.Pagination import Pagination
-from Services.Models.Personal.Personal import Personal, PersonalBody
-from Services.Models.Personal.PersonalCOVI import PersonalCOVI
-from Services.Models.Personal.QueryBySerial import QueryBySerial
+from Services.Models.General.QueryBySerial import QueryBySerial
 
 app = FastAPI()
 
@@ -14,52 +14,42 @@ def GetRoot():
     return {"Hello": "World"}
 
 
-@app.get("/personal/count")
+@app.get("/candidates/count")
 def CountPersonal():
-    count = Personal.select('*').count()
+    count = Candidates.select('*').count()
     return {'Count': count}
 
 
-@app.post("/personal/find/all")
+@app.post("/candidates/find/all")
 def FindAllPersonal(pagination: Pagination):
     if pagination.Page < 1:
         return {'Body': 'The pagination is 1-index based'}
-    query = Personal.select().paginate(pagination.Page, pagination.PageSize)
+    query = Candidates.select().paginate(pagination.Page, pagination.PageSize)
     return {'Items': [item.__data__ for item in query]}
 
 
-@app.post("/personal/find/one")
+@app.post("/candidates/find/one")
 def FindOnePersonal(query: QueryBySerial):
     try:
-        personal = Personal.get(Personal.Serial == query.Serial)
+        personal = Candidates.get(Candidates.Serial == query.Serial)
         return {'Item': personal.__data__}
     except DoesNotExist:
         return {'Body': 'Not Found'}
 
 
-@app.post("/personal/insert")
-def InsertPersonal(personal: PersonalBody):
-    personal = Personal.From(personal)
+@app.post("/candidates/insert")
+def InsertPersonal(personal: CandidateBody):
+    personal = Candidates.From(personal)
     personal.save()
     return {'Body': 'Success'}
 
 
-@app.put("/personal/update")
-def UpdatePersonal(personal: PersonalBody):
+@app.put("/candidates/update")
+def UpdatePersonal(personal: CandidateBody):
     try:
-        item = Personal.get(Personal.Serial == personal.Serial)
-        item.TypeDocument = personal.TypeDocument
-        item.NumberDocument = personal.NumberDocument
-        item.Names = personal.Names
-        item.BornPlace = personal.BornPlace
-        item.Country = personal.Country
-        item.Profession = personal.Profession
-        item.Experience = personal.Experience
-        item.Role = personal.Role
-        item.Dependency = personal.Dependency
-        item.Email = personal.Email
-        item.Phone = personal.Phone
-        item.Salary = personal.Salary
+        item = Candidates.get(Candidates.Serial == personal.Serial)
+        item.Candidate = personal.Candidate
+        item.PoliticalParty = personal.PoliticalParty
 
         item.save()
         return {'Item': item.__data__}
@@ -67,21 +57,15 @@ def UpdatePersonal(personal: PersonalBody):
         return {'Body': 'Not Found'}
 
 
-@app.delete("/personal/delete")
+@app.delete("/candidates/delete")
 def RemovePersonal(query: QueryBySerial):
     try:
-        personal = Personal.get(Personal.Serial == query.Serial)
+        personal = Candidates.get(Candidates.Serial == query.Serial)
         personal.delete_instance()
         return {'Body': 'Success'}
     except DoesNotExist:
         return {'Body': 'Not Found'}
 
 
-@app.get("/personal/covi/count")
-def CountPersonalCOVI():
-    count = PersonalCOVI.select('*').count()
-    return {'Count': count}
-
-
 if __name__ == '__main__':
-    pass
+    uvicorn.run("main:app", port=5000, log_level="info")
