@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Generic, Type, Any, Optional, List, Callable
 
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 
 from Services.Generator.Types import T, Dependencies
 
@@ -29,7 +29,7 @@ class CRUDGenerator(Generic[T], APIRouter, ABC):
         super().__init__(prefix=prefix, tags=tags, **kwargs)
 
         if findOneRoute:
-            self.add_api_route(
+            self.AddRouter(
                 "",
                 self.FindOne(),
                 methods=["GET"],
@@ -37,6 +37,20 @@ class CRUDGenerator(Generic[T], APIRouter, ABC):
                 summary="Find One",
                 dependencies=findOneRoute,
             )
+
+    def AddRouter(
+            self,
+            path: str,
+            endpoint: Callable[..., Any],
+            dependencies: bool | Dependencies,
+            error_responses: Optional[List[HTTPException]] = None,
+            **kwargs: Any,
+    ) -> None:
+        dependencies = [] if isinstance(dependencies, bool) else dependencies
+        responses: Any = (
+            {err.status_code: {"detail": err.detail} for err in error_responses} if error_responses else None
+        )
+        super().add_api_route(path, endpoint, dependencies=dependencies, responses=responses, **kwargs)
 
     @abstractmethod
     def FindOne(self, *args: Any, **kwargs: Any) -> Callable[..., Any]:
