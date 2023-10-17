@@ -1,7 +1,10 @@
-from typing import TypeVar, Optional, Sequence
+from typing import TypeVar, Optional, Sequence, Dict
 
 from fastapi import Depends
 from pydantic import BaseModel
+
+Pagination = Dict[str, Optional[int]]
+PydanticSchema = BaseModel
 
 # Can be any subtype of BaseModel
 T = TypeVar("T", bound=BaseModel)

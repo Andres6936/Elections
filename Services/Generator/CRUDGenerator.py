@@ -14,7 +14,7 @@ class CRUDGenerator(Generic[T], APIRouter, ABC):
             schema: Type[T],
             prefix: Optional[str] = None,
             tags: Optional[List[str]] = None,
-            findOneRoute: bool | Dependencies = True,
+            find_one_route: bool | Dependencies = True,
             **kwargs: Any):
         """
         :param prefix: to set the path prefix for a router. Up to now, this was only possible when calling include_router.
@@ -28,14 +28,14 @@ class CRUDGenerator(Generic[T], APIRouter, ABC):
 
         super().__init__(prefix=prefix, tags=tags, **kwargs)
 
-        if findOneRoute:
+        if find_one_route:
             self.AddRouter(
                 "",
                 self.FindOne(),
                 methods=["GET"],
                 response_model=Optional[List[self.schema]],
                 summary="Find One",
-                dependencies=findOneRoute,
+                dependencies=find_one_route,
             )
 
     def AddRouter(
