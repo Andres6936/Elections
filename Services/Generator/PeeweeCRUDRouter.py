@@ -1,7 +1,7 @@
 from typing import Any, Callable, Type, Optional, List
 
 from Services.Generator.CRUDGenerator import CRUDGenerator
-from Services.Generator.Types import Dependencies, PydanticSchema as Schema
+from Services.Generator.Types import Dependencies, PeeweeSchema as Schema
 
 
 class PeeweeCRUDRouter(CRUDGenerator[Schema]):

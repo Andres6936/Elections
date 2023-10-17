@@ -1,13 +1,14 @@
 from typing import TypeVar, Optional, Sequence, Dict
 
 from fastapi import Depends
-from pydantic import BaseModel
+
+from Services.Models.Elecciones.BaseModelPeewee import BaseModelPeewee
 
 Pagination = Dict[str, Optional[int]]
-PydanticSchema = BaseModel
+PeeweeSchema = BaseModelPeewee
 
 # Can be any subtype of BaseModel
-T = TypeVar("T", bound=BaseModel)
+T = TypeVar("T", bound=BaseModelPeewee)
 
 # The typing.Sequence type hint in Python represents an immutable sequence of values. An immutable sequence
 # is a sequence that cannot be modified after it is created. Examples of immutable sequences in Python
