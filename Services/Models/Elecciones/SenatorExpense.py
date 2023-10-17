@@ -1,9 +1,9 @@
 from peewee import TextField
 
-from Services.Models.Elecciones.EleccionesBase import EleccionesBase
+from Services.Models.Elecciones.BaseModelPeewee import BaseModelPeewee
 
 
-class SenatorExpense(EleccionesBase):
+class SenatorExpense(BaseModelPeewee):
     Serial = TextField(primary_key=True)
     Consul = TextField()
     District = TextField()

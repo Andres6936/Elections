@@ -2,7 +2,7 @@ import shortuuid
 from peewee import TextField
 from pydantic import BaseModel
 
-from Services.Models.Elecciones.EleccionesBase import EleccionesBase
+from Services.Models.Elecciones.BaseModelPeewee import BaseModelPeewee
 
 
 class CandidateBody(BaseModel):
@@ -10,7 +10,7 @@ class CandidateBody(BaseModel):
     PoliticalParty: str
 
 
-class Candidate(EleccionesBase):
+class Candidate(BaseModelPeewee):
     Serial = TextField(primary_key=True)
     Candidate = TextField()
     PoliticalParty = TextField()

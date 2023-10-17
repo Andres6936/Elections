@@ -1,9 +1,9 @@
 from peewee import TextField
 
-from Services.Models.Elecciones.EleccionesBase import EleccionesBase
+from Services.Models.Elecciones.BaseModelPeewee import BaseModelPeewee
 
 
-class Items(EleccionesBase):
+class Items(BaseModelPeewee):
     Serial = TextField()
     Line = TextField()
     Item = TextField()

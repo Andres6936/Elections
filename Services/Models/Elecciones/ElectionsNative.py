@@ -1,9 +1,9 @@
 from peewee import TextField
 
-from Services.Models.Elecciones.EleccionesBase import EleccionesBase
+from Services.Models.Elecciones.BaseModelPeewee import BaseModelPeewee
 
 
-class ElectionsNative(EleccionesBase):
+class ElectionsNative(BaseModelPeewee):
     Department = TextField()
     Municipality = TextField()
     Stand = TextField()
