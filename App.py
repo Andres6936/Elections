@@ -2,7 +2,9 @@ import uvicorn
 from fastapi import FastAPI
 from peewee import DoesNotExist
 
+from Services.Generator.PeeweeCRUDRouter import PeeweeCRUDRouter
 from Services.Models.Elecciones.Candidate import Candidate, CandidateBody
+from Services.Models.Elecciones.Senator import Senator
 from Services.Models.General.Pagination import Pagination
 from Services.Models.General.QueryBySerial import QueryBySerial
 
@@ -65,6 +67,9 @@ def RemovePersonal(query: QueryBySerial):
         return {'Body': 'Success'}
     except DoesNotExist:
         return {'Body': 'Not Found'}
+
+
+app.include_router(PeeweeCRUDRouter(Senator))
 
 
 if __name__ == '__main__':

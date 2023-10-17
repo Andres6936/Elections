@@ -33,7 +33,7 @@ class CRUDGenerator(Generic[T], APIRouter, ABC):
                 "",
                 self.FindOne(),
                 methods=["GET"],
-                response_model=Optional[List[self.schema]],
+                response_model=None,
                 summary="Find One",
                 dependencies=find_one_route,
             )
