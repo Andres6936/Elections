@@ -13,6 +13,7 @@ class PeeweeCRUDRouter(CRUDGenerator[Schema]):
             find_one_route: bool | Dependencies = True,
             **kwargs: Any,
     ):
+        self.schema = schema
         super().__init__(
             schema=schema,
             prefix=prefix,
@@ -23,6 +24,7 @@ class PeeweeCRUDRouter(CRUDGenerator[Schema]):
 
     def FindOne(self, *args: Any, **kwargs: Any) -> Callable[..., Any]:
         def useRoute():
-            return Schema.select('*').count()
+            response = self.schema.get().__data__
+            return response
 
         return useRoute
