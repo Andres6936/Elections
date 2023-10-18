@@ -1,5 +1,7 @@
 from typing import Any, Callable, Type, Optional, List
 
+from playhouse.shortcuts import model_to_dict
+
 from Services.Generator.CRUDGenerator import CRUDGenerator
 from Services.Generator.Types import Dependencies, PeeweeSchema as Schema
 
@@ -23,9 +25,9 @@ class PeeweeCRUDRouter(CRUDGenerator[Schema]):
         )
 
     def FindOne(self, *args: Any, **kwargs: Any) -> Callable[..., Any]:
-        def route():
-            response = self.schema.get().__data__
-            return response
+        def route(serial: str):
+            response = self.schema.get(serial)
+            return model_to_dict(response)
 
         return route
 
@@ -37,5 +39,47 @@ class PeeweeCRUDRouter(CRUDGenerator[Schema]):
                 items.append(item)
                 print(item)
             return items
+
+        return route
+
+    def InsertOne(self, *args: Any, **kwargs: Any) -> Callable[..., Any]:
+        def route(serial: str):
+            response = self.schema.get(serial).__data__
+            return response
+
+        return route
+
+    def InsertMany(self, *args: Any, **kwargs: Any) -> Callable[..., Any]:
+        def route(serial: str):
+            response = self.schema.get(serial).__data__
+            return response
+
+        return route
+
+    def UpdateOne(self, *args: Any, **kwargs: Any) -> Callable[..., Any]:
+        def route(serial: str):
+            response = self.schema.get(serial).__data__
+            return response
+
+        return route
+
+    def UpdateMany(self, *args: Any, **kwargs: Any) -> Callable[..., Any]:
+        def route(serial: str):
+            response = self.schema.get(serial).__data__
+            return response
+
+        return route
+
+    def DeleteOne(self, *args: Any, **kwargs: Any) -> Callable[..., Any]:
+        def route(serial: str):
+            response = self.schema.get(serial).__data__
+            return response
+
+        return route
+
+    def DeleteMany(self, *args: Any, **kwargs: Any) -> Callable[..., Any]:
+        def route(serial: str):
+            response = self.schema.get(serial).__data__
+            return response
 
         return route
