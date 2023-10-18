@@ -63,3 +63,15 @@ class CRUDGenerator(Generic[T], APIRouter, ABC):
         like a function, and it can take any number and types of arguments, and it can return any value.
         """
         raise NotImplementedError
+
+    @abstractmethod
+    def FindMany(self, *args: Any, **kwargs: Any) -> Callable[..., Any]:
+        """
+        The Callable type hint indicates that the value is an object that can be called like a function.
+        The ... syntax indicates that the number and types of arguments that the object can take are not specified.
+        The Any type hint indicates that the object can return any value.
+
+        In other words, the Callable[..., Any] type hint indicates that the value is an object that can be called
+        like a function, and it can take any number and types of arguments, and it can return any value.
+        """
+        raise NotImplementedError

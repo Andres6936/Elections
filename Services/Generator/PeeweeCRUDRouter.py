@@ -23,8 +23,19 @@ class PeeweeCRUDRouter(CRUDGenerator[Schema]):
         )
 
     def FindOne(self, *args: Any, **kwargs: Any) -> Callable[..., Any]:
-        def useRoute():
+        def route():
             response = self.schema.get().__data__
             return response
 
-        return useRoute
+        return route
+
+    def FindMany(self, *args: Any, **kwargs: Any) -> Callable[..., Any]:
+        def route():
+            response = self.schema.select().limit(5)
+            items = []
+            for item in response.dicts():
+                items.append(item)
+                print(item)
+            return items
+
+        return route
