@@ -9,6 +9,7 @@ fastapi = "*"
 uvicorn = { extras = ["standard"], version = "*" }
 peewee = "*"
 shortuuid = "*"
+ruff = "*"
 
 [dev-packages]
 
