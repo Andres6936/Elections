@@ -37,7 +37,7 @@ class CRUDGenerator(Generic[T], APIRouter, ABC):
 
         if find_one_route:
             self.AddRouter(
-                "",
+                "/{serial}",
                 self.FindOne(),
                 methods=["GET"],
                 response_model=None,
@@ -48,71 +48,71 @@ class CRUDGenerator(Generic[T], APIRouter, ABC):
         if find_many_route:
             self.AddRouter(
                 "",
-                self.FindOne(),
+                self.FindMany(),
                 methods=["GET"],
                 response_model=None,
-                summary="Find One",
-                dependencies=find_one_route,
+                summary="Find Many",
+                dependencies=find_many_route,
             )
 
         if insert_one_route:
             self.AddRouter(
                 "",
-                self.FindOne(),
-                methods=["GET"],
+                self.InsertOne(),
+                methods=["POST"],
                 response_model=None,
-                summary="Find One",
-                dependencies=find_one_route,
+                summary="Insert One",
+                dependencies=insert_one_route,
             )
 
         if insert_many_route:
             self.AddRouter(
-                "",
-                self.FindOne(),
-                methods=["GET"],
+                "/batch",
+                self.InsertMany(),
+                methods=["POST"],
                 response_model=None,
-                summary="Find One",
-                dependencies=find_one_route,
+                summary="Insert Many",
+                dependencies=insert_many_route,
             )
 
         if update_one_route:
             self.AddRouter(
-                "",
-                self.FindOne(),
-                methods=["GET"],
+                "/{serial}",
+                self.UpdateOne(),
+                methods=["PUT"],
                 response_model=None,
-                summary="Find One",
-                dependencies=find_one_route,
+                summary="Update One",
+                dependencies=update_one_route,
             )
 
         if update_many_route:
             self.AddRouter(
-                "",
-                self.FindOne(),
-                methods=["GET"],
+                "/batch",
+                self.UpdateMany(),
+                methods=["PUT"],
                 response_model=None,
-                summary="Find One",
-                dependencies=find_one_route,
+                summary="Update Many",
+                dependencies=update_many_route,
             )
 
         if delete_one_route:
             self.AddRouter(
-                "",
-                self.FindOne(),
-                methods=["GET"],
+                "/{serial}",
+                self.DeleteOne(),
+                methods=["DELETE"],
                 response_model=None,
-                summary="Find One",
-                dependencies=find_one_route,
+                summary="Delete One",
+                dependencies=delete_one_route,
             )
 
         if delete_many_route:
             self.AddRouter(
-                "",
-                self.FindOne(),
-                methods=["GET"],
+                "/batch",
+                self.DeleteMany(),
+                methods=["DELETE"],
                 response_model=None,
-                summary="Find One",
-                dependencies=find_one_route,
+                summary="Delete Many",
+                dependencies=delete_many_route,
             )
 
     def AddRouter(
