@@ -26,6 +26,12 @@ To run the project, you can use the following command:
 This will start the API server on port 8000. You can then test the
 API endpoints by using a tool like Postman or curl.
 
+### Running the Linter
+
+This project use Ruff (Python linter, written in Rust)
+
+`ruff check .`
+
 ### Documentation
 
 The API documentation is generated automatically and can be accessed
