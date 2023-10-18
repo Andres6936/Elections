@@ -15,6 +15,13 @@ class CRUDGenerator(Generic[T], APIRouter, ABC):
             prefix: Optional[str] = None,
             tags: Optional[List[str]] = None,
             find_one_route: bool | Dependencies = True,
+            find_many_route: bool | Dependencies = True,
+            insert_one_route: bool | Dependencies = True,
+            insert_many_route: bool | Dependencies = True,
+            update_one_route: bool | Dependencies = True,
+            update_many_route: bool | Dependencies = True,
+            delete_one_route: bool | Dependencies = True,
+            delete_many_route: bool | Dependencies = True,
             **kwargs: Any):
         """
         :param prefix: to set the path prefix for a router. Up to now, this was only possible when calling include_router.
@@ -29,6 +36,76 @@ class CRUDGenerator(Generic[T], APIRouter, ABC):
         super().__init__(prefix=prefix, tags=tags, **kwargs)
 
         if find_one_route:
+            self.AddRouter(
+                "",
+                self.FindOne(),
+                methods=["GET"],
+                response_model=None,
+                summary="Find One",
+                dependencies=find_one_route,
+            )
+
+        if find_many_route:
+            self.AddRouter(
+                "",
+                self.FindOne(),
+                methods=["GET"],
+                response_model=None,
+                summary="Find One",
+                dependencies=find_one_route,
+            )
+
+        if insert_one_route:
+            self.AddRouter(
+                "",
+                self.FindOne(),
+                methods=["GET"],
+                response_model=None,
+                summary="Find One",
+                dependencies=find_one_route,
+            )
+
+        if insert_many_route:
+            self.AddRouter(
+                "",
+                self.FindOne(),
+                methods=["GET"],
+                response_model=None,
+                summary="Find One",
+                dependencies=find_one_route,
+            )
+
+        if update_one_route:
+            self.AddRouter(
+                "",
+                self.FindOne(),
+                methods=["GET"],
+                response_model=None,
+                summary="Find One",
+                dependencies=find_one_route,
+            )
+
+        if update_many_route:
+            self.AddRouter(
+                "",
+                self.FindOne(),
+                methods=["GET"],
+                response_model=None,
+                summary="Find One",
+                dependencies=find_one_route,
+            )
+
+        if delete_one_route:
+            self.AddRouter(
+                "",
+                self.FindOne(),
+                methods=["GET"],
+                response_model=None,
+                summary="Find One",
+                dependencies=find_one_route,
+            )
+
+        if delete_many_route:
             self.AddRouter(
                 "",
                 self.FindOne(),
