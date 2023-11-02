@@ -4,10 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-wxpython = "*"
 fastapi = "*"
 uvicorn = { extras = ["standard"], version = "*" }
-peewee = "*"
 shortuuid = "*"
 ruff = "*"
 ormar = { extras = ["sqlite"], version = "*" }
