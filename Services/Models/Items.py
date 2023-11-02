@@ -4,14 +4,14 @@ from Services.Models.BaseModel import BaseModel
 
 
 class Items(BaseModel):
-    Serial = Text()
-    Line = Text()
-    Item = Text()
-    Price = Text()
-    Amount = Text()
-    UoM = Text()
-    Total = Text()
-    CDP = Text()
+    Serial: str = Text(primary_key=True)
+    Line: str = Text()
+    Item: str = Text()
+    Price: str = Text()
+    Amount: str = Text()
+    UoM: str = Text()
+    Total: str = Text()
+    CDP: str = Text()
 
     class Meta:
         tablename = "Items"
