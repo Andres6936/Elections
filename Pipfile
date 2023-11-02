@@ -10,6 +10,8 @@ uvicorn = { extras = ["standard"], version = "*" }
 peewee = "*"
 shortuuid = "*"
 ruff = "*"
+ormar = { extras = ["sqlite"], version = "*" }
+fastapi-crudrouter = "*"
 
 [dev-packages]
 
