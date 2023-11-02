@@ -4,6 +4,7 @@ from Services.Models.BaseModel import BaseModel
 
 
 class ElectionsNational(BaseModel):
+    Serial = Text(primary_key=True)
     Department = Text()
     Municipality = Text()
     Stand = Text()
