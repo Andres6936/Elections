@@ -12,13 +12,13 @@ from Services.Models.SenatorExpense import SenatorExpense
 
 app = FastAPI()
 
-app.include_router(OrmarCRUDRouter(schema=Candidate))
-app.include_router(OrmarCRUDRouter(schema=ElectionsNational))
-app.include_router(OrmarCRUDRouter(schema=ElectionsNative))
-app.include_router(OrmarCRUDRouter(schema=IncomeBase))
-app.include_router(OrmarCRUDRouter(schema=Items))
-app.include_router(OrmarCRUDRouter(schema=Senator))
-app.include_router(OrmarCRUDRouter(schema=SenatorExpense))
+app.include_router(OrmarCRUDRouter(schema=Candidate, paginate=99))
+app.include_router(OrmarCRUDRouter(schema=ElectionsNational, paginate=99))
+app.include_router(OrmarCRUDRouter(schema=ElectionsNative, paginate=99))
+app.include_router(OrmarCRUDRouter(schema=IncomeBase, paginate=99))
+app.include_router(OrmarCRUDRouter(schema=Items, paginate=99))
+app.include_router(OrmarCRUDRouter(schema=Senator, paginate=99))
+app.include_router(OrmarCRUDRouter(schema=SenatorExpense, paginate=99))
 
 if __name__ == '__main__':
     uvicorn.run("App:app", port=8000, log_level="info")
