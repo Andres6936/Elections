@@ -47,32 +47,57 @@ function App(): JSX.Element {
     }
 
     return (
-        <SafeAreaView className={"flex-1"}>
+        <SafeAreaView className={"flex-1 flex-row bg-white"}>
             <StatusBar
                 barStyle={isDarkMode ? 'light-content' : 'dark-content'}
             />
-            <ScrollView
-                contentInsetAdjustmentBehavior="automatic"
-                className={backgroundStyle}>
-                <View className="bg-white dark:bg-black p-2 gap-2">
-                    {candidates.map(candidate => (
-                        <View key={candidate.Serial} className="flex-1 border border-red-200 rounded p-2">
-                            <Text className="font-bold text-md">Candidate: {candidate.Candidate}</Text>
-                            <Text>Political Party: {candidate.PoliticalParty}</Text>
-                            <View className="flex-row mt-2">
-                                <Button className="w-24 bg-sky-500" title="Edit"></Button>
-                                <Button className="w-24 bg-red-500" title="Delete"></Button>
-                            </View>
-                        </View>
-                    ))}
+            <View className="flex-[2] gap-4 p-2">
+                <View className="border-b pb-2">
+                    <Text className="font-semibold">Candidates</Text>
                 </View>
-            </ScrollView>
-            <View className="flex-row p-2 bg-white border-t border-indigo-500 items-center">
-                <Text className="text-black mr-3">Show: {pageSize} registers of {currentPage + 1} page</Text>
-                <Button onPress={previousPage} disabled={currentPage === 0} className="bg-blue-500 text-black"
-                        title="Prev">Prev</Button>
-                <Button onPress={nextPage} disabled={isPaginationEnd} className="bg-blue-500 text-black"
-                        title="Next">Next</Button>
+                <View className="border-b pb-2">
+                    <Text className="font-semibold">Elections National</Text>
+                </View>
+                <View className="border-b pb-2">
+                    <Text className="font-semibold">Elections Native</Text>
+                </View>
+                <View className="border-b pb-2">
+                    <Text className="font-semibold">Income Base</Text>
+                </View>
+                <View className="border-b pb-2">
+                    <Text className="font-semibold">Items</Text>
+                </View>
+                <View className="border-b pb-2">
+                    <Text className="font-semibold">Senator</Text>
+                </View>
+                <View className="border-b pb-2">
+                    <Text className="font-semibold">Senator Expenses</Text>
+                </View>
+            </View>
+            <View className="flex-[9] border-l">
+                <ScrollView
+                    contentInsetAdjustmentBehavior="automatic"
+                    className={backgroundStyle}>
+                    <View className="bg-white dark:bg-black p-2 gap-2">
+                        {candidates.map(candidate => (
+                            <View key={candidate.Serial} className="flex-1 border border-red-200 rounded p-2">
+                                <Text className="font-bold text-md">Candidate: {candidate.Candidate}</Text>
+                                <Text>Political Party: {candidate.PoliticalParty}</Text>
+                                <View className="flex-row mt-2">
+                                    <Button className="w-24 bg-sky-500" title="Edit"></Button>
+                                    <Button className="w-24 bg-red-500" title="Delete"></Button>
+                                </View>
+                            </View>
+                        ))}
+                    </View>
+                </ScrollView>
+                <View className="flex-row p-2 bg-white border-t border-indigo-500 items-center">
+                    <Text className="text-black mr-3">Show: {pageSize} registers of {currentPage + 1} page</Text>
+                    <Button onPress={previousPage} disabled={currentPage === 0} className="bg-blue-500 text-black"
+                            title="Prev">Prev</Button>
+                    <Button onPress={nextPage} disabled={isPaginationEnd} className="bg-blue-500 text-black"
+                            title="Next">Next</Button>
+                </View>
             </View>
         </SafeAreaView>
     );
