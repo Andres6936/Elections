@@ -57,8 +57,12 @@ function App(): JSX.Element {
                 <View className="bg-white dark:bg-black p-2 gap-2">
                     {candidates.map(candidate => (
                         <View key={candidate.Serial} className="flex-1 border border-red-200 rounded p-2">
-                            <Text>Candidate: {candidate.Candidate}</Text>
+                            <Text className="font-bold text-md">Candidate: {candidate.Candidate}</Text>
                             <Text>Political Party: {candidate.PoliticalParty}</Text>
+                            <View className="flex-row mt-2">
+                                <Button className="w-24 bg-sky-500" title="Edit"></Button>
+                                <Button className="w-24 bg-red-500" title="Delete"></Button>
+                            </View>
                         </View>
                     ))}
                 </View>
