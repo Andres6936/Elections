@@ -6,12 +6,17 @@ import {TypeCandidates} from "./src/types/TypeCandidates";
 
 function App(): JSX.Element {
     const isDarkMode = useColorScheme() === 'dark';
+    const [currentPage, setCurrentPage] = useState<number>(0)
+    const [pageSize, setPageSize] = useState<number>(60);
     const [candidates, setCandidates] = useState<TypeCandidates[]>([])
 
     useEffect(() => {
         (async () => {
             const candidateService = new CandidateService();
-            const candidates = await candidateService.getAllCandidates();
+            const candidates = await candidateService.getAllCandidates({
+                skip: currentPage,
+                limit: pageSize,
+            });
             setCandidates(candidates)
         })()
     }, []);
@@ -36,7 +41,7 @@ function App(): JSX.Element {
                 </View>
             </ScrollView>
             <View className="p-2 bg-white border-t-4 border-indigo-500">
-                <Text className="text-black">Show: 0 of 25 registers</Text>
+                <Text className="text-black">Show: {pageSize} of 25 registers</Text>
             </View>
         </SafeAreaView>
     );

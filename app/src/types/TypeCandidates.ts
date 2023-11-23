@@ -3,3 +3,8 @@ export type TypeCandidates = {
     PoliticalParty: string,
     Serial: string,
 }
+
+export type PaginationModel = {
+    skip: number,
+    limit: number,
+}
