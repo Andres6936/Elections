@@ -7,27 +7,27 @@ export function LeftNavigator() {
 
     return (
         <View className="flex-[2] gap-4 p-2">
-            <View className="border-b pb-2">
+            <Pressable onPress={() => navigator.navigate("CandidateScreen")} className="border-b pb-2">
                 <Text className="font-semibold">Candidates</Text>
-            </View>
-            <Pressable onPress={() => navigator.navigate("ElectionsNational")} className="border-b pb-2">
+            </Pressable>
+            <Pressable onPress={() => navigator.navigate("ElectionsNationalScreen")} className="border-b pb-2">
                 <Text className="font-semibold">Elections National</Text>
             </Pressable>
-            <View className="border-b pb-2">
+            <Pressable onPress={() => navigator.navigate("ElectionsNativeScreen")} className="border-b pb-2">
                 <Text className="font-semibold">Elections Native</Text>
-            </View>
-            <View className="border-b pb-2">
+            </Pressable>
+            <Pressable onPress={() => navigator.navigate("IncomeBaseScreen")} className="border-b pb-2">
                 <Text className="font-semibold">Income Base</Text>
-            </View>
-            <View className="border-b pb-2">
+            </Pressable>
+            <Pressable onPress={() => navigator.navigate("ItemsScreen")} className="border-b pb-2">
                 <Text className="font-semibold">Items</Text>
-            </View>
-            <View className="border-b pb-2">
+            </Pressable>
+            <Pressable onPress={() => navigator.navigate("SenatorScreen")} className="border-b pb-2">
                 <Text className="font-semibold">Senator</Text>
-            </View>
-            <View className="border-b pb-2">
+            </Pressable>
+            <Pressable onPress={() => navigator.navigate("SenatorExpenseScreen")} className="border-b pb-2">
                 <Text className="font-semibold">Senator Expenses</Text>
-            </View>
+            </Pressable>
         </View>
     )
 }
