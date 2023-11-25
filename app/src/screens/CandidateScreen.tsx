@@ -65,26 +65,24 @@ export function CandidateScreen() {
                     contentInsetAdjustmentBehavior="automatic"
                     className={backgroundStyle}>
 
-                    <View className="bg-white m-2 rounded">
+                    <View className="bg-white my-4 mx-4 rounded-xl shadow">
                         <View>
                             <Text className="font-bold text-lg pb-4 px-2 pt-2">Candidate Summary</Text>
                         </View>
 
-                        <View className="bg-blue-100 flex-row gap-2 p-2 pb-3">
+                        <View className="bg-blue-100 flex-row gap-2 px-2 pb-2">
                             <Text className="flex-[1]">Serial</Text>
-                            <Text className="flex-[1]">Candidate</Text>
-                            <Text className="flex-[1]">Political Party</Text>
+                            <Text className="flex-[3]">Candidate</Text>
+                            <Text className="flex-[3]">Political Party</Text>
                         </View>
 
-                        <View className="dark:bg-black gap-2 mt-2 px-2">
+                        <View className="gap-2 my-2 px-2">
                             {candidates.map(candidate => (
-                                <View key={candidate.Serial} className="flex-1 border border-red-200 rounded p-2">
-                                    <Text className="font-bold text-md">Candidate: {candidate.Candidate}</Text>
-                                    <Text>Political Party: {candidate.PoliticalParty}</Text>
-                                    <View className="flex-row mt-2">
-                                        <Button className="w-24 bg-sky-500" title="Edit"></Button>
-                                        <Button className="w-24 bg-red-500" title="Delete"></Button>
-                                    </View>
+                                <View key={candidate.Serial}
+                                      className="flex-1 flex-row border-b border-b-gray-50 pb-2 px-2">
+                                    <Text className="flex-1">{candidate.Serial}</Text>
+                                    <Text className="flex-[3]">{candidate.Candidate}</Text>
+                                    <Text className="flex-[3]">{candidate.PoliticalParty}</Text>
                                 </View>
                             ))}
                         </View>
