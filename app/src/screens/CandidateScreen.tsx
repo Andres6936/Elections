@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Button, SafeAreaView, ScrollView, StatusBar, Text, useColorScheme, View} from "react-native-windows";
 import {TypeCandidates} from "../types/TypeCandidates";
 import {CandidateService} from "../services/CandidateService";
+import {LeftNavigator} from "../layout/LeftNavigator";
 
 export function CandidateScreen() {
     const isDarkMode = useColorScheme() === 'dark';
@@ -50,29 +51,7 @@ export function CandidateScreen() {
             <StatusBar
                 barStyle={isDarkMode ? 'light-content' : 'dark-content'}
             />
-            <View className="flex-[2] gap-4 p-2">
-                <View className="border-b pb-2">
-                    <Text className="font-semibold">Candidates</Text>
-                </View>
-                <View className="border-b pb-2">
-                    <Text className="font-semibold">Elections National</Text>
-                </View>
-                <View className="border-b pb-2">
-                    <Text className="font-semibold">Elections Native</Text>
-                </View>
-                <View className="border-b pb-2">
-                    <Text className="font-semibold">Income Base</Text>
-                </View>
-                <View className="border-b pb-2">
-                    <Text className="font-semibold">Items</Text>
-                </View>
-                <View className="border-b pb-2">
-                    <Text className="font-semibold">Senator</Text>
-                </View>
-                <View className="border-b pb-2">
-                    <Text className="font-semibold">Senator Expenses</Text>
-                </View>
-            </View>
+            <LeftNavigator/>
             <View className="flex-[9] border-l">
                 <ScrollView
                     contentInsetAdjustmentBehavior="automatic"
