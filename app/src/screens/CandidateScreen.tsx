@@ -53,6 +53,14 @@ export function CandidateScreen() {
             />
             <LeftNavigator/>
             <View className="flex-[9] border-l">
+                <View className="flex-row px-2 py-2 bg-white border-b border-b-indigo-200 items-center justify-between">
+                    <Text className="text-black mr-3">Dashboard {">"} Candidates</Text>
+                    <View className="flex-row gap-2 items-center">
+                        <View className="w-[36px] h-[36px] bg-gray-600 rounded-full"></View>
+                        <Text className="text-black mr-3">Joan Andrés</Text>
+                    </View>
+                </View>
+
                 <ScrollView
                     contentInsetAdjustmentBehavior="automatic"
                     className={backgroundStyle}>
@@ -69,6 +77,7 @@ export function CandidateScreen() {
                         ))}
                     </View>
                 </ScrollView>
+
                 <View className="flex-row p-2 bg-white border-t border-indigo-500 items-center">
                     <Text className="text-black mr-3">Show: {pageSize} registers of {currentPage + 1} page</Text>
                     <Button onPress={previousPage} disabled={currentPage === 0} className="bg-blue-500 text-black"
