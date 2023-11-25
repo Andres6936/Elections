@@ -1,4 +1,4 @@
-import {PaginationModel} from "../types/TypeCandidates";
+import {PaginationModel} from "../types/TypeServices";
 
 export class BaseService<T> {
     protected readonly BASE_URL: string = "http://127.0.0.1:8000";

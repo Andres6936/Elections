@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Button, SafeAreaView, ScrollView, StatusBar, Text, useColorScheme, View} from "react-native-windows";
-import {TypeCandidates} from "../types/TypeCandidates";
+import {TypeCandidates} from "../types/TypeServices";
 import {CandidateService} from "../services/CandidateService";
 import {LeftNavigator} from "../layout/LeftNavigator";
 

@@ -1,4 +1,4 @@
-import {PaginationModel, TypeCandidates} from "../types/TypeCandidates";
+import {PaginationModel, TypeCandidates} from "../types/TypeServices";
 import {BaseService} from "./BaseService";
 
 export class CandidateService extends BaseService<TypeCandidates> {
