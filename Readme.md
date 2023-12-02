@@ -1,3 +1,5 @@
+![Image](./Docs/App.png)
+
 ### Elections API
 
 This project is a simple example of a REST API built with FastAPI.
