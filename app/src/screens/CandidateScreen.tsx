@@ -32,7 +32,7 @@ export function CandidateScreen() {
         })()
     }, [currentPage, pageSize, isPaginationEnd]);
 
-    const backgroundStyle = "text-black bg-neutral-300 dark:bg-slate-900 dark:text-white"
+    const backgroundStyle = "text-black bg-blue-50 dark:bg-slate-900 dark:text-white"
 
     const previousPage = () => {
         if (currentPage >= 1) {
