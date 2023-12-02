@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Button, SafeAreaView, ScrollView, StatusBar, Text, useColorScheme, View} from "react-native-windows";
+import {Button, SafeAreaView, ScrollView, StatusBar, Text, TextInput, useColorScheme, View} from "react-native-windows";
 import {TypeCandidates} from "../types/TypeServices";
 import {CandidateService} from "../services/CandidateService";
 import {LeftNavigator} from "../layout/LeftNavigator";
@@ -64,6 +64,23 @@ export function CandidateScreen() {
                 <ScrollView
                     contentInsetAdjustmentBehavior="automatic"
                     className={backgroundStyle}>
+
+                    <Text className="mx-4 mt-4 font-bold text-2xl">Candidates</Text>
+
+                    <View className="bg-white my-4 mx-4 rounded-xl shadow flex flex-row px-4 py-2">
+                        <View className="flex flex-col gap-2 flex-[3]">
+                            <Text className="font-bold">What are you looking for?</Text>
+                            <TextInput className="bg-blue-50 border rounded-xl flex-1 mx-2"/>
+                        </View>
+                        <View className="flex flex-col gap-2 flex-[2] px-3">
+                            <Text className="font-bold">Category</Text>
+                            <TextInput className="bg-blue-50 border rounded-xl flex-1 mx-2"/>
+                        </View>
+                        <View className="flex flex-col gap-2 flex-1">
+                            <Text className="font-bold">Status</Text>
+                            <TextInput className="bg-blue-50 border rounded-xl flex-1 mx-2"/>
+                        </View>
+                    </View>
 
                     <View className="bg-white my-4 mx-4 rounded-xl shadow">
                         <View>
